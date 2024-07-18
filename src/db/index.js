@@ -12,3 +12,5 @@ const connectDB = async ()=>{
 }
 
 export default connectDB;
+
+// always database connect using async and try catch block method...
