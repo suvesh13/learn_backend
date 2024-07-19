@@ -15,4 +15,10 @@ app.use(express.static("public")) // [pubilc is file name in vscode (folder)] im
 
 app.use(cookieParser())
 
+//routes import
+import userRouter from "./routes/user.routes.js";
+
+//routes declaration
+app.use("/api/v1/users",userRouter) //actual http://localhost:8000/api/v1/user/register
+
 export { app }
