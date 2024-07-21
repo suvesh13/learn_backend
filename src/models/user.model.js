@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         trim:true,
         index:true
     },
-    avtar:{
+    avatar:{
         type:String, //cloudinary url
         required:true,
     },
@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save",async function(next){
     if(!this.isModified("password"))return next(); //code only run when password is modified by user or at the first time when it create. therefore here it check it modified or not..
     
-    this.password = bcrypt.hash(this.password,10)
+    this.password = await bcrypt.hash(this.password,10)
     next()
 }) // here we use only normal function because array function not have (this) refference[mean context]. and it is complex proccess therefore it use async.
 
